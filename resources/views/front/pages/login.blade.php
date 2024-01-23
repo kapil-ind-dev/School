@@ -5,11 +5,11 @@
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title text-center">Sign In</h5><hr>
-                        <form onsubmit="return validate()" name="f1">
+                        <form action="{{ route('signincode');}}" method="post" onsubmit="return validate()" name="f1">
                             @csrf
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Username</label>
-                                <input type="email" name="username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Username">
+                                <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Username">
                                 <small id="emailError" class="form-text err text-danger"></small>
                                 <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                             </div>
@@ -34,7 +34,7 @@
 </div>
    <script>
         function validate(){
-            var username = document.f1.username.value;
+            var username = document.f1.email.value;
             var password = document.f1.password.value;
             $('.err').html('');
             var status = true;

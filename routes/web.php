@@ -16,10 +16,16 @@ use App\Http\Controllers\AdminController;
 */
 //User
 Route::get('/', [HomeController::class, 'index']);
-Route::get('/sign-in', [HomeController::class, 'index']);
-Route::get('/sign-up', [HomeController::class, 'signup']);
+Route::get('/sign-in', [HomeController::class, 'index'])->name('sign-in');
+Route::post('/signincode', [HomeController::class, 'signincode'])->name('signincode');
+Route::get('/sign-up', [HomeController::class, 'signup'])->name('sign-up');
 Route::get('/forgot-password', [HomeController::class, 'forgot_password']);
 Route::get('/reset-password', [HomeController::class, 'reset_password']);
 Route::post('/signupcode', [HomeController::class, 'signupcode'])->name('signupcode');
+Route::middleware('auth')->group(function () {
+    Route::get('/profile',  [HomeController::class, 'user_profile'])->name('profile');
+    Route::get('/logout', [HomeController::class, 'logout'])->name('logout');
+});
+
 //Admin
 Route::get('/login', [AdminController::class, 'index']);
