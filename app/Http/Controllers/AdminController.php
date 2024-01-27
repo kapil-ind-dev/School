@@ -12,9 +12,9 @@ class AdminController extends BaseController
     public function index(){
         echo view('admin/pages/login');
     }
-    // public function dashboard(){
-    //     echo view('admin/common/header');
-    //     echo view('admin/pages/sign-up');
-    //     echo view('admin/common/header');
-    // }
+    public function dashboard(){
+        echo view('admin/common/header');
+        echo view('admin/pages/dashboard');
+        echo view('admin/common/footer');
+    }
 }
